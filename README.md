@@ -38,7 +38,7 @@ class Calculator:
 
 This is not a good way of coding as Calculator class contains multiple responsibilities. Each operation should be in its separate class.
 
-```
+```python
 class Adder:
     def add(self, a, b):
         return a + b
@@ -63,7 +63,7 @@ Now, each class holds the logic for its specific operation, complying with SRP a
 Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
 Let's see another example:
 
-```
+```python
 class ReportGenerator:
 	def generate_report(self, data):
 		# logic for generating report
@@ -76,7 +76,7 @@ class ReportGenerator:
 
 In this example, if we need to change the report format, we need to modify the ReportGenerator class, which violates the Open/Closed Principle.
 
-```
+```python
 class ReportGenerator:
 	def generate_report(self, data):
 		# logic for generating report
@@ -96,7 +96,7 @@ Subclasses should be substitutable for their base classes without altering the c
 
 Consider the following example:
 
-```
+```python
 class Bird:
 	def fly(self):
 		print("Flying")
@@ -112,7 +112,7 @@ class Ostrich(Bird):
 
 In this case, Ostrich violates LSP as it cannot fly, unlike other birds. A better design would be:
 
-```
+```python
 class Bird:
 	pass
 
@@ -134,7 +134,7 @@ Now FlyingBird and Bird are separate classes, ensuring that all subclasses of Fl
 No client should be forced to depend on methods it does not use.
 Consider the following example:
 
-```
+```python
 class Worker:
 	def work(self):
 		print("Working")
@@ -152,7 +152,7 @@ class Human(Worker):
 
 In this design, Human is forced to implement both work and eat methods. A better design would be:
 
-```
+```python
 class Workable:
 	def work(self):
 		pass
@@ -176,7 +176,7 @@ Now Human can choose to implement either Workable, Eatable, or both, adhering to
 High-level modules should not depend on low-level modules. Both should depend on abstractions.
 Consider the following example:
 
-```
+```python
 class LightBulb:
 	def turn_on(self):
 	print("LightBulb: turned on")
@@ -194,7 +194,7 @@ class Switch:
 
 In this design, Switch is highly dependent on LightBulb. A better design would be:
 
-```
+```python
 class Switchable:
 	def turn_on(self):
 		pass
